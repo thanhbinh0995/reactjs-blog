@@ -8,5 +8,9 @@ export const Counter = ({ counter }) => (
 );
 
 Counter.propTypes = {
-    counter: PropTypes.number.isRequired,
+    counter: PropTypes.number,
+};
+
+Counter.defaultProps = {
+    counter: 1,
 };
