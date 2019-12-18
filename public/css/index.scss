@@ -1,0 +1,24 @@
+$primary-color: hotpink;
+$header-color: #4e8cff;
+$background-send-message: #4e8cff;
+$text-send-message-color: #fff;
+$background-receive-message: #f1f0f0;
+$text-receive-message-color: #263238;
+$border-button-color: #ccc;
+$button-hover-color: #fcc800;
+$font-size: 14px;
+$font-size-button: 12px;
+$arrow-color: #fff;
+$background-arrow: #ccc;
+
+.post-preview {
+    p {
+        font-size: $font-size;
+        width: 100%;
+    }
+}
+
+.not-found-page {
+    margin-top: 30vh;
+    text-align: center;
+}

@@ -1,0 +1,26 @@
+const COLOR = {
+    DEFAULT: '#004d7f',
+    SUCCESS: '#A0D468',
+    ERROR: '#ED5565',
+    DEFAULT_BUBBLE: '#DD4741',
+    WHITE: '#FFFFFF',
+    DISABLED_ICON: 'rgba(0, 0, 0, 0.26)',
+    DEFAULT_LEFTBAR_BACKGROUND: '#222d32',
+    BLACK: '#000',
+    BLUE_LIGHT: '#4A90E2',
+    BLUE_DARK: '#0060BF',
+    BROW_DARK: '#B0B0B0',
+    BROW_WHITE: '#8a8a8a',
+    BROW_BLACK: '#eeefef',
+    BROW_LIGHT: '#e0e0e0',
+    BROW: '#e4e4e4',
+    GREEN_LIGHT: '#63BC5E',
+    GREEN_EX_LIGHT: '#99e29c',
+    PRIMARY: '#2196f3',
+    SECONDARY: 'rgb(225, 0, 80)',
+    RED: 'red',
+    DEFAULT_TEXT: '#FFFFFF',
+    DEFAULT_MENU_TEXT: 'rgba(0, 0, 0, 0.87)',
+};
+
+export { COLOR };
