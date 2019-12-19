@@ -5,6 +5,7 @@ module.exports = {
     mode: 'development',
     entry: [
         '@babel/polyfill',
+        'react-hot-loader/patch',
         './src/index.js'
     ],
     output: {
@@ -18,12 +19,7 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                      presets: ['@babel/preset-env']
-                    }
-                }
+                loaders: ['babel-loader'],
             },
             {
                 test: /\.(css|scss)$/,

@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
-import { createEpicMiddleware, combineEpics } from 'redux-observable';
+import { createEpicMiddleware } from 'redux-observable';
 import { history } from './history';
 import rootReducer from '../reducers';
 import rootSaga from '../sagas';
