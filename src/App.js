@@ -1,6 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { withNamespaces } from 'react-i18next';
+import { hot } from 'react-hot-loader/root';
 import Nav from './pages/common/Nav';
 import Footer from './pages/common/Footer';
 import Routes from './routes';
@@ -25,4 +27,4 @@ AppPage.propTypes = {};
 
 AppPage.defaultProps = {};
 
-export default withRouter(withNamespaces('translations')(AppPage));
+export default hot(withRouter(withNamespaces('translations')(AppPage)));
