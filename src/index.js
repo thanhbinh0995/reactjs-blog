@@ -8,6 +8,7 @@ import { DragDropContextProvider } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import App from './App';
 import { history, store } from './store';
+
 import '../public/css/font-awesome/css/font-awesome.min.css';
 import '../public/css/bootstrap.css';
 import '../public/css/clean-blog.min.css';
