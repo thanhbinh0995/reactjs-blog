@@ -13,8 +13,8 @@ const url = 'https://evening-citadel-85778.herokuapp.com/whiskey/';
 function fetchWhiskiesEpic(action$) {
     return action$
         .ofType(WHISKY_TYPES.FETCH_WHISKIES)
-        .switchMap(() => {
-            return ajax
+        .switchMap(() =>
+            ajax
                 .getJSON(url)
                 .map(data => data.results)
                 .map(whiskies =>
@@ -24,8 +24,8 @@ function fetchWhiskiesEpic(action$) {
                         imageUrl: whisky.img_url,
                     }))
                 )
-                .map(whiskies => whiskies.filter(whisky => !!whisky.imageUrl));
-        })
+                .map(whiskies => whiskies.filter(whisky => !!whisky.imageUrl))
+        )
         .map(whiskies => fetchWhiskiesSuccess(whiskies))
         .catch(error => Observable.of(fetchWhiskiesFailure(error.message)));
 }

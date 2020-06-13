@@ -5,12 +5,10 @@ function loadArticlesEpic(action$) {
     return action$
         .ofType(ARTICLE_TYPES.LOAD_ARTICLES)
         .switchMap(() => ArticleAPI.getAll().then(res => res.data.articles))
-        .map(data => {
-            return {
-                type: ARTICLE_TYPES.LOAD_ARTICLES_SUCCESS,
-                payload: data,
-            };
-        })
+        .map(data => ({
+            type: ARTICLE_TYPES.LOAD_ARTICLES_SUCCESS,
+            payload: data,
+        }))
         .catch(error => ({
             type: ARTICLE_TYPES.LOAD_ARTICLES_ERROR,
             payload: { error },
