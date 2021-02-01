@@ -112,4 +112,5 @@ class Nav extends React.Component {
 function mapStateToProps(state) {
     return {};
 }
+
 export default connect(mapStateToProps)(withNamespaces('translations')(withStyles(styles)(Nav)));

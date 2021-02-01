@@ -32,16 +32,11 @@ class ArticlePage extends React.Component {
                             <p>{article.description}</p>
                             <ul className="tag-list">
                                 {article.tagList &&
-                                    article.tagList.map(tag => {
-                                        return (
-                                            <li
-                                                className="tag-default tag-pill tag-outline"
-                                                key={tag}
-                                            >
-                                                {tag}
-                                            </li>
-                                        );
-                                    })}
+                                    article.tagList.map(tag => (
+                                        <li className="tag-default tag-pill tag-outline" key={tag}>
+                                            {tag}
+                                        </li>
+                                    ))}
                             </ul>
                         </div>
                     </div>
