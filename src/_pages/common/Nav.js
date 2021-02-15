@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { connect } from 'react-redux';
 import { withNamespaces } from 'react-i18next';
 import LoadingBar from 'react-redux-loading-bar';
@@ -48,6 +48,7 @@ class Nav extends React.Component {
     render() {
         const { lang } = this.state;
         const { classes } = this.props;
+
         return (
             <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
                 <LoadingBar updateTime={40} className={classes.loadingBar} />
@@ -71,18 +72,18 @@ class Nav extends React.Component {
                     <div className="collapse navbar-collapse" id="navbarResponsive">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <Link className="nav-link" to="/">
+                                <Link className="nav-link" href="/">
                                     Home
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/test">
-                                    Test
+                                <Link className="nav-link" href="/About">
+                                    About
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/whisky">
-                                    Whisky
+                                <Link className="nav-link" href="/ContactUs">
+                                    Contact US
                                 </Link>
                             </li>
                         </ul>

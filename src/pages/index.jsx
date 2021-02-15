@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withNamespaces } from 'react-i18next';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Link from 'next/link';
-import { decrementCounter, incrementCounter, loadArticles } from '../action-creators';
+import { loadArticles } from '../action-creators';
+import Nav from '../_pages/common/Nav';
+import Footer from '../_pages/common/Footer';
+import { DefaultButton, LoadingComponent } from '../common/components';
+import ListArticles from '../_pages/home/ListArticles';
 
 class App extends React.Component {
     state = {};
@@ -14,36 +18,28 @@ class App extends React.Component {
     }
 
     render() {
-        const {
-            incrementCounter: increment,
-            decrementCounter: decrement,
-            counter,
-            articles,
-        } = this.props;
-        console.log('articles', articles);
+        const { articles, inProgress, t } = this.props;
 
         return (
-            <div>
-                <button type="button" onClick={increment}>
-                    Increment
-                </button>
-                <button type="button" onClick={decrement}>
-                    Decrement
-                </button>
-                <h1>{counter}</h1>
-                <div className="App">
-                    <div className="menu-container">
-                        <Link href="/Home">
-                            <div className="menu">Home </div>
-                        </Link>
-                        <Link href="/About">
-                            <div className="menu">About Us</div>
-                        </Link>
-                        <Link href="/ContactUs">
-                            <div className="menu">Contact Us</div>
-                        </Link>
+            <div className="app-container">
+                <Nav />
+                <br />
+                <p>{t('Welcome to React Translation')}</p>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-8 col-md-10 mx-auto">
+                            {inProgress || !articles ? (
+                                <LoadingComponent />
+                            ) : (
+                                <ListArticles articles={articles} />
+                            )}
+                            <div className="clearfix">
+                                <DefaultButton>Order Posts</DefaultButton>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <Footer />
             </div>
         );
     }
@@ -57,26 +53,23 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
     bindActionCreators(
         {
-            incrementCounter,
-            decrementCounter,
             loadArticles,
         },
         dispatch
     );
 
 App.propTypes = {
-    incrementCounter: PropTypes.func.isRequired,
-    decrementCounter: PropTypes.func.isRequired,
     loadArticles: PropTypes.func.isRequired,
-    counter: PropTypes.number.isRequired,
     articles: PropTypes.array,
+    inProgress: PropTypes.bool,
 };
 
 App.defaultProps = {
     articles: [],
+    inProgress: false,
 };
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(App);
+)(withNamespaces('translations')(App));

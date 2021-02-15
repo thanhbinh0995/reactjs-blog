@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
-import NotFoundPage from '../pages/notfound';
+import NotFoundPage from '../_pages/notfound';
 import { LoadingComponent } from '../common/components';
 
 const Home = Loadable({
