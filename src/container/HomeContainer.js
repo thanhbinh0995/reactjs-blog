@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { loadArticles } from '../action-creators';
-import HomePage from '../pages/home/index';
+import HomePage from '../_pages/home/index';
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators(

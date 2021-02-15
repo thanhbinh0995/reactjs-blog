@@ -1,14 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Link from 'next/link';
-import { decrementCounter, incrementCounter } from '../redux/actions/counterActions';
+import { decrementCounter, incrementCounter, loadArticles } from '../action-creators';
 
 class App extends React.Component {
     state = {};
 
+    componentDidMount() {
+        const { loadArticles: loadArticlesProps } = this.props;
+        loadArticlesProps();
+    }
+
     render() {
-        const { incrementCounter: increment, decrementCounter: decrement, counter } = this.props;
+        const {
+            incrementCounter: increment,
+            decrementCounter: decrement,
+            counter,
+            articles,
+        } = this.props;
+        console.log('articles', articles);
 
         return (
             <div>
@@ -39,17 +51,29 @@ class App extends React.Component {
 
 const mapStateToProps = state => ({
     counter: state.counter.value,
+    ...state.articles,
 });
 
-const mapDispatchToProps = {
-    incrementCounter,
-    decrementCounter,
-};
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(
+        {
+            incrementCounter,
+            decrementCounter,
+            loadArticles,
+        },
+        dispatch
+    );
 
 App.propTypes = {
     incrementCounter: PropTypes.func.isRequired,
     decrementCounter: PropTypes.func.isRequired,
+    loadArticles: PropTypes.func.isRequired,
     counter: PropTypes.number.isRequired,
+    articles: PropTypes.array,
+};
+
+App.defaultProps = {
+    articles: [],
 };
 
 export default connect(

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWhiskies } from '../action-creators';
-import WhiskyPage from '../pages/whisky';
+import WhiskyPage from '../_pages/whisky';
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators(
